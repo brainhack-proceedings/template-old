@@ -1,4 +1,4 @@
-name: Publish to neurolibre.com
+name: Build proceeding PDF
 on: [push]
 
 env:
