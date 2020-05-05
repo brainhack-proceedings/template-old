@@ -1,4 +1,4 @@
-baseURL = "/brainhack-proceegins.github.io/"
+baseURL = "https://brainhack-proceedings.github.io/template"
 languageCode = "en-us"
 title = "BrainHack 2020"
 publishdir = "public"
