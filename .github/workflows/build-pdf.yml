@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     
     container:
-      image: agahkarakuzu/bhproceedingssha256:bfc1b7f3b714b12e04a6a6ef1f440e9f19997ac1bfecc2187f2476cf47c22ab3
+      image: agahkarakuzu/bhproceedings@sha256:bfc1b7f3b714b12e04a6a6ef1f440e9f19997ac1bfecc2187f2476cf47c22ab3
 
     steps:
      - name: Checkout repository
