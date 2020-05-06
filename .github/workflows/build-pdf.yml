@@ -25,7 +25,7 @@ jobs:
         cp brainhack-${{env.PUB_NAME}}.pdf ../static/pdf/brainhack-${{env.PUB_NAME}}.pdf
      - uses: actions/upload-artifact@v2
        with:
-         name: PDF Report {{env.PUB_NAME}}
+         name: PDF Report ${{env.PUB_NAME}}
          path: static/pdf/brainhack-${{env.PUB_NAME}}.pdf
         
        

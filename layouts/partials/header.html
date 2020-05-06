@@ -20,7 +20,7 @@
 </style>
 
     <!-- Header -->
-    <header class="bg-primary py-2 mb-5">
+    <header class="bg-primary py-2 mb-5" style="background-image: url('https://braintumorcenter.ucsf.edu/sites/default/files/styles/page_header_lg/public/2019-01/human-stem-cell-derived-neuron_header.jpg?itok=H8VzBAUF')! important;background-size: cover;">
       <div class="container h-100">
         <div class="row h-100 align-items-center" style="margin-left:5px;">
           <div class="col-xs-12">
@@ -28,7 +28,7 @@
             <h1 class="display-4 text-white mt-5 mb-2">{{.Site.Data.report.report.title}}</h1>
 
               <ul class="comma-list" style="color: aliceblue;">
-              <p class="lead mb-5 text-white-50" style="margin-bottom: 0em! important">Authors</p>
+              <p class="lead mb-5 text-white" style="margin-bottom: 0em! important">Authors</p>
                 {{ range $ky, $lbl := .Site.Data.report.report.author}}
                 {{if $lbl.url}}
                 <li style="color: aliceblue;list-style: none;">
@@ -36,7 +36,7 @@
               </li>
               {{end}}
               {{if not $lbl.url}}
-              <li style="color: skyblue;list-style: none;" data-toggle="tooltip"  title={{$lbl.affiliation}}>
+              <li style="color: lightgreen;list-style: none;" data-toggle="tooltip"  title={{$lbl.affiliation}}>
               {{ $lbl.firstname }} {{$lbl.surname}}
              </li>
               {{end}}

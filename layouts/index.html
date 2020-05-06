@@ -32,11 +32,24 @@
           </div>
           <!-- Supplementary content-->
           <div class="col-md-6" style="padding-left: 5rem! important; padding-top: 4rem! important;">
- 
-            <h3>Abstract</h3>
+            <!-- TODO: Direct this to project url.-->
+            {{ partial "badge_custom" (dict "label" "GitHub" "message" "Project Repository" "https://github.com/brainhack-proceedings/template" "" "target" "_blank" "logo" "github" "logoWidth" "14" "color" "green")}}
 
-            <h3>Tags</h3>
+            <h3 style="margin-top: 1em;">Abstract</h3>
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h3 style="margin-bottom: 1em;">Tags</h3>
+            <ul class="tags">
+              <li><a href="#" class="tag">Neuroimaging</a></li>
+              <li><a href="#" class="tag">MRI</a></li>
+              <li><a href="#" class="tag">Workflows</a></li>
+            </ul>
+
+            <h3 style="margin-top: 1em;">Supplemental Materials</h3>
+            <p>  Such as data etc. </p>
             
+            <h3 style="margin-top: 1em;">License</h3>
+            <p>  License description </p>
+
           </div>
 
         </div>
