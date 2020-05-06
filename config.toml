@@ -3,3 +3,23 @@ languageCode = "en-us"
 title = "BrainHack 2020"
 publishdir = "public"
 theme = "business-frontpage"
+
+[params]
+    author = "OHBM Brainhack 2020"
+    description = "Proceeding page."
+
+    [params.navbar]
+    name = "Proceedings gallery"
+    url = "#"
+
+    [[params.navbar.nav]]
+    current = true
+    name = "OHBM Hackathon 2020"
+    url = "https://ohbm.github.io/hackathon2020/"
+
+    [params.header]
+    name = "Business Name or Tagline"
+    tagline = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non possimus ab labore provident mollitia. Id assumenda voluptate earum corporis facere quibusdam quisquam iste ipsa cumque unde nisi, totam quas ipsam."
+
+    [params.footer]
+        copyright = "BrainHack"

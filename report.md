@@ -4,7 +4,6 @@ event: 'OHBM Brainhack 2020'
 title:  'Title goes here'
 
 author:
-
 - initials: JD
   surname: Doe
   firstname: Jane
@@ -16,9 +15,9 @@ author:
   firstname: John J.
   email: johndoe@gmail.com
   affiliation: aff2
+  url: https://jonhdoe.website.com
 
 affiliations:
-
 - id: aff1
   orgname: 'Research Lab 1, Organization 1'
   street: street_name_goes_here 
@@ -34,6 +33,8 @@ affiliations:
   state: Quebec
   country: Canada
 
+abstract: Please write a brief summary of your project. This section will appear on the webpage. 
+
 url: http://github.com/repo_owner/repo_name
 
 coi: Please add if there are competing interests. Otherwise, type None.
@@ -42,11 +43,11 @@ acknow: The authors would like to thank the organizers and attendees of OHBM Bra
 
 contrib: JD and JJD wrote the software, JD performed tests, and JD and JJD wrote the report.
 
-bibliography: brainhack-report
+bibliography: report
 ---
 
 # Introduction
-The bibliography (\code{brainhack-report.bib}) must respect \href{http://www.bibtex.org/Using/}{BibTeX} format. 
+The bibliography (\code{report.bib}) must respect \href{http://www.bibtex.org/Using/}{BibTeX} format. 
 You can cite entries in your bibliography using their tags:
 
 \begin{itemize}

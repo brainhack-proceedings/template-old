@@ -8,23 +8,24 @@ jobs:
     runs-on: ubuntu-latest
     
     container:
-      image: pandoc/latex@sha256:361a1405d45ffeb8da8a687f7d695c92d392a8bea9c931b0df240470c9692290    
+      image: agahkarakuzu/bhproceedingssha256:bfc1b7f3b714b12e04a6a6ef1f440e9f19997ac1bfecc2187f2476cf47c22ab3
 
     steps:
      - name: Checkout repository
        uses: actions/checkout@v2
      - name: Compile PDF
        run: |
-        ls
-        pandoc -s -N --template ./latex/brainhack-report-template.tex brainhack-report.md -o ./latex/brainhack-${{env.PUB_NAME}}.tex
+        m2j report.md >> data/report.json
+        pandoc -s -N --template ./latex/brainhack-report-template.tex report.md -o ./latex/brainhack-${{env.PUB_NAME}}.tex
         cd latex
         pdflatex brainhack-${{env.PUB_NAME}}.tex
         bibtex brainhack-${{env.PUB_NAME}}
         pdflatex brainhack-${{env.PUB_NAME}}.tex
         pdflatex brainhack-${{env.PUB_NAME}}.tex
+        cp brainhack-${{env.PUB_NAME}}.pdf ../static/pdf/brainhack-${{env.PUB_NAME}}.pdf
      - uses: actions/upload-artifact@v2
        with:
-         name: PDF
-         path: latex/brainhack-${{env.PUB_NAME}}.pdf
+         name: PDF Report {{env.PUB_NAME}}
+         path: static/pdf/brainhack-${{env.PUB_NAME}}.pdf
         
        

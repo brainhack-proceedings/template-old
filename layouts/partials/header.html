@@ -1,0 +1,49 @@
+<style>
+  .comma-list {
+    display: inline;
+    list-style: none;
+    padding: 0px;
+    font-family: "Open Sans", cursive, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: large;
+    
+  }
+  .comma-list li {
+    display: inline;
+  }
+  .comma-list li::after {
+    content: ", ";
+  }
+  .comma-list li:last-child::after {
+    content: "";
+}
+</style>
+
+    <!-- Header -->
+    <header class="bg-primary py-2 mb-5">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center" style="margin-left:5px;">
+          <div class="col-xs-12">
+
+            <h1 class="display-4 text-white mt-5 mb-2">{{.Site.Data.report.report.title}}</h1>
+
+              <ul class="comma-list" style="color: aliceblue;">
+              <p class="lead mb-5 text-white-50" style="margin-bottom: 0em! important">Authors</p>
+                {{ range $ky, $lbl := .Site.Data.report.report.author}}
+                {{if $lbl.url}}
+                <li style="color: aliceblue;list-style: none;">
+                  <a href="{{$lbl.website}}" data-toggle="tooltip" title={{$lbl.affiliation}} style="color:aliceblue">{{ $lbl.firstname }} {{$lbl.surname}}</a> 
+              </li>
+              {{end}}
+              {{if not $lbl.url}}
+              <li style="color: skyblue;list-style: none;" data-toggle="tooltip"  title={{$lbl.affiliation}}>
+              {{ $lbl.firstname }} {{$lbl.surname}}
+             </li>
+              {{end}}
+              {{ end }}
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </header>
