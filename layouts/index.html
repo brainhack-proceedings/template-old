@@ -21,10 +21,10 @@
         <div class="row">
               <!-- PDF viewer-->
           <div class="col-lg-6" style="display:block;">
-            <!-- TODO: Make template dynamic-->
-            {{ partial "badge" (dict "name" "template") }} 
-            <div>
+            
             {{ partial "share-buttons.html" . }}
+            <div>
+
             </div>
             <iframe src="pdf/brainhack-template.pdf" width="589px" height="817vh" marginwidth="0" frameboreder="0" marginheight="0" style="border:none;margin-top:3px;">
               This browser does not support PDFs. Please download the PDF to view it: 
@@ -33,6 +33,8 @@
           <!-- Supplementary content-->
           <div class="col-md-6" style="padding-left: 5rem! important; padding-top: 4rem! important;">
             <!-- TODO: Direct this to project url.-->
+            {{ partial "badge" (dict "name" "template") }} 
+            <!-- TODO: Make template dynamic-->
             {{ partial "badge_custom" (dict "label" "GitHub" "message" "Project Repository" "link" "https://github.com/brainhack-proceedings/template" "target" "_blank" "logo" "github" "logoWidth" "14" "color" "green")}}
 
             <h3 style="margin-top: 1em;">Abstract</h3>
