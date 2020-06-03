@@ -22,7 +22,11 @@
               <!-- PDF viewer-->
           <div class="col-lg-6" style="display:block;">
             
-            {{ partial "share-buttons.html" . }}
+            <!-- TODO: Direct this to project url.-->
+              {{ partial "badge" (dict "name" "template") }} 
+            <!-- TODO: Make template dynamic-->
+           
+            {{ partial "badge_custom" (dict "label" "GitHub" "message" "Project Repository" "link" "https://github.com/brainhack-proceedings/template" "target" "_blank" "logo" "github" "logoWidth" "14" "color" "green")}}
             <div>
 
             </div>
@@ -32,11 +36,9 @@
           </div>
           <!-- Supplementary content-->
           <div class="col-md-6" style="padding-left: 5rem! important; padding-top: 4rem! important;">
-            <!-- TODO: Direct this to project url.-->
-            {{ partial "badge" (dict "name" "template") }} 
-            <!-- TODO: Make template dynamic-->
-            {{ partial "badge_custom" (dict "label" "GitHub" "message" "Project Repository" "link" "https://github.com/brainhack-proceedings/template" "target" "_blank" "logo" "github" "logoWidth" "14" "color" "green")}}
-
+            
+            {{ partial "share-buttons.html" . }}
+            
             <h3 style="margin-top: 1em;">Abstract</h3>
             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <h3 style="margin-bottom: 1em;">Tags</h3>
