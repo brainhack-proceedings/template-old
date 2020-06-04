@@ -22,6 +22,7 @@ jobs:
         bibtex brainhack-${{env.PUB_NAME}}
         pdflatex brainhack-${{env.PUB_NAME}}.tex
         pdflatex brainhack-${{env.PUB_NAME}}.tex
+        mkdir ../static/pdf
         cp brainhack-${{env.PUB_NAME}}.pdf ../static/pdf/brainhack-${{env.PUB_NAME}}.pdf
      - uses: actions/upload-artifact@v2
        with:
