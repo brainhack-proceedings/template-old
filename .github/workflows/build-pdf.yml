@@ -27,5 +27,8 @@ jobs:
        with:
          name: PDF Report ${{env.PUB_NAME}}
          path: static/pdf/brainhack-${{env.PUB_NAME}}.pdf
-        
-       
+       name: Deploy
+       uses: peaceiris/actions-gh-pages@v3
+       with:
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         publish_dir: ./public
