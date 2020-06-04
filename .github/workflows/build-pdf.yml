@@ -40,7 +40,18 @@ jobs:
      - uses: actions/download-artifact@master
        with:
          name: PDF Report ${{env.PUB_NAME}}
-         path: static/pdf/brainhack-${{env.PUB_NAME}}.pdf      
+         path: static/pdf/brainhack-${{env.PUB_NAME}}.pdf
+     - name: Commit files
+       run: |
+        git config --local user.email "noreply@bhproceedings.com"
+        git config --local user.name "BHBOT"
+        git add static/pdf/brainhack-${{env.PUB_NAME}}.pdf
+        git commit -m "[ADD] 🤖 Compiled PDF" -a
+        ls ./static/pdf
+     - name: Push changes
+       uses: ad-m/github-push-action@master
+       with:
+        github_token: ${{ secrets.PAT_BOT }}   
      - name: Setup Hugo
        uses: peaceiris/actions-hugo@v2
        with:
@@ -52,13 +63,3 @@ jobs:
        with:
          github_token: ${{ secrets.PAT_BOT }}
          publish_dir: ./public
-
-     #- name: Commit files
-     #  run: |
-     #   git config --local user.email "noreply@bhproceedings.com"
-     #   git config --local user.name "BHBOT"
-     #   git commit -m "[ADD] 🤖 Compiled PDF" -a
-     #- name: Push changes
-     #  uses: ad-m/github-push-action@master
-     #  with:
-     #   github_token: ${{ secrets.PAT_BOT }}
