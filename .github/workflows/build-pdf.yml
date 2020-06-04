@@ -27,6 +27,12 @@ jobs:
        with:
          name: PDF Report ${{env.PUB_NAME}}
          path: static/pdf/brainhack-${{env.PUB_NAME}}.pdf
+     - name: Setup Hugo
+       uses: peaceiris/actions-hugo@v2
+       with:
+         hugo-version: '0.71.1'
+     - name: Build
+       run: hugo --minify
      - name: Deploy
        uses: peaceiris/actions-gh-pages@v3
        with:
