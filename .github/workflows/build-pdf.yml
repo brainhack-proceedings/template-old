@@ -13,9 +13,6 @@ jobs:
     steps:
      - name: Checkout repository
        uses: actions/checkout@v2
-       with:
-        submodules: recursive
-        fetch-depth: 0    
      - name: Compile PDF
        run: |
         m2j report.md >> data/report.json
@@ -26,10 +23,28 @@ jobs:
         pdflatex brainhack-${{env.PUB_NAME}}.tex
         pdflatex brainhack-${{env.PUB_NAME}}.tex
         cp brainhack-${{env.PUB_NAME}}.pdf ../static/pdf/brainhack-${{env.PUB_NAME}}.pdf
-     - uses: actions/upload-artifact@v2
+     - name: Commit files
+       run: |
+        git config --local user.email "noreply@bhproceedings.com"
+        git config --local user.name "BHBOT"
+        git commit -m "[ADD] 🤖 Compiled PDF" -a
+     - name: Push changes
+       uses: ad-m/github-push-action@master
        with:
-         name: PDF Report ${{env.PUB_NAME}}
-         path: static/pdf/brainhack-${{env.PUB_NAME}}.pdf
+        github_token: ${{ secrets.PAT_BOT }}
+     #- uses: actions/upload-artifact@v2
+       #with:
+         #name: PDF Report ${{env.PUB_NAME}}
+         #path: static/pdf/brainhack-${{env.PUB_NAME}}.pdf
+  buildHugo:
+   runs-on: ubuntu-latest
+   needs: buildPDF
+   steps:  
+     - name: Checkout repository
+       uses: actions/checkout@v2
+       with:
+        submodules: true
+        fetch-depth: 0       
      - name: Setup Hugo
        uses: peaceiris/actions-hugo@v2
        with:
