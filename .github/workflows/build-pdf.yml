@@ -38,7 +38,7 @@ jobs:
         fetch-depth: 0
      - uses: actions/download-artifact@master
        with:
-         name: my-artifact
+         name: PDF Report ${{env.PUB_NAME}}
          path: static/pdf/brainhack-${{env.PUB_NAME}}.pdf      
      - name: Setup Hugo
        uses: peaceiris/actions-hugo@v2
