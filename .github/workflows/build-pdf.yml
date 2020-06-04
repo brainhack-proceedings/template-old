@@ -12,6 +12,9 @@ jobs:
 
     steps:
      - name: Checkout repository
+       with:
+          submodules: true
+          fetch-depth: 0    
        uses: actions/checkout@v2
      - name: Compile PDF
        run: |
