@@ -66,9 +66,7 @@
           {{ $myUrl := .Site.Data.report.report.url}}
           {{ partial "badge" (dict "name" "template") }} {{ partial "badge_custom" (dict "label" "GitHub" "message" "Project Repository" "link" $myUrl "target" "_blank" "logo" "github" "logoWidth" "14" "color" "green")}}      
            <!-- TODO: Make template dynamic-->
-           <a href="https://github.com/brainhack-proceedings/template/blob/gh-pages/pdf/brainhack-template.pdf" download="brainhack-template.pdf"> 
-           <button class="btn" style="margin-top: 1em;"><i class="fa fa-download"></i> Download PDF</button>
-           </a>
+           <button class="btn" style="margin-top: 1em;"><i class="fa fa-download"></i>            <a href="https://github.com/brainhack-proceedings/template/blob/gh-pages/pdf/brainhack-template.pdf" download="brainhack-template.pdf"> Download PDF</a></button>
             
           <h3 style="margin-top: 1em;">Abstract</h3>
           <p> {{.Site.Data.report.report.abstract}}</p>
@@ -82,7 +80,7 @@
           <h3 style="margin-top: 1em;">Supplemental Materials</h3>
           <ul>
             {{ range $ky, $lbl := .Site.Data.report.report.supplemental}}
-            <li><a href="#" class="tag"> {{$lbl}} </a></li> 
+            <li> {{$lbl}} </li> 
           {{end}}
           </ul>
           
