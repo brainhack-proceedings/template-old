@@ -20,17 +20,28 @@ jobs:
        run: |
         m2j report.md >> data/report.json
         pandoc -s -N --template ./latex/brainhack-report-template.tex report.md -o ./latex/brainhack-${{env.PUB_NAME}}.tex
+        pandoc -s -N --template ./latex/brainhack-html-template.tex report.md -o ./latex/brainhack-${{env.PUB_NAME}}-html.tex
         cd latex
         pdflatex brainhack-${{env.PUB_NAME}}.tex
         bibtex brainhack-${{env.PUB_NAME}}
         pdflatex brainhack-${{env.PUB_NAME}}.tex
         pdflatex brainhack-${{env.PUB_NAME}}.tex
+        pandoc brainhack-${{env.PUB_NAME}}-html.tex -f latex -t html -s -o report.html --bibliography ../report.bib
+        cp report.html layouts/partials/report.html
         mkdir -p ../static/pdf
         cp brainhack-${{env.PUB_NAME}}.pdf ../static/pdf/brainhack-${{env.PUB_NAME}}.pdf
      - uses: actions/upload-artifact@v2
        with:
          name: PDF Report ${{env.PUB_NAME}}
          path: static/pdf/brainhack-${{env.PUB_NAME}}.pdf
+     - uses: actions/upload-artifact@v2
+       with:
+         name: HTML Report ${{env.PUB_NAME}}
+         path: layouts/partials/report.html
+     - uses: actions/upload-artifact@v2
+       with:
+         name: JSON Report ${{env.PUB_NAME}}
+         path: data/report.json
   buildHugo:
    runs-on: ubuntu-latest
    needs: buildPDF
@@ -44,8 +55,17 @@ jobs:
        with:
          name: PDF Report ${{env.PUB_NAME}}
          path: static/pdf
+     - uses: actions/download-artifact@master
+       with:
+         name: HTML Report ${{env.PUB_NAME}}
+         path: layouts/partials
+     - uses: actions/download-artifact@master
+       with:
+         name: JSON Report ${{env.PUB_NAME}}
+         path: data
      - name: Commit files
        run: |
+        rsync -r figures/ static
         git config --local user.email "noreply@bhproceedings.com"
         git config --local user.name "BHBOT"
         git add static/pdf/brainhack-${{env.PUB_NAME}}.pdf
