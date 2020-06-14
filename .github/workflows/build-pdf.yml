@@ -28,7 +28,7 @@ jobs:
         pdflatex brainhack-${{env.PUB_NAME}}.tex
         pdflatex brainhack-${{env.PUB_NAME}}.tex
         pandoc brainhack-${{env.PUB_NAME}}-html.tex -f latex -t html -s -o report.html --bibliography ../report.bib
-        cp report.html layouts/partials/report.html
+        cp report.html ../layouts/partials/report.html
         mkdir -p ../static/pdf
         cp brainhack-${{env.PUB_NAME}}.pdf ../static/pdf/brainhack-${{env.PUB_NAME}}.pdf
      - uses: actions/upload-artifact@v2
