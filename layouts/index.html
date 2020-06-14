@@ -7,6 +7,31 @@
 
     {{ partial "head.html" . }}
 
+    <style>
+      .row-height{
+        height: 100vh;
+      }
+      .left{
+        height: 100%;
+        overflow-y: scroll;
+      }
+  img {
+        max-width: 80%;
+        height: auto;
+    }
+    ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+  }
+  
+  * {
+    -ms-overflow-style: none !important;
+  }
+  #content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
+  }
+  </style>
+
   </head>
 
   <body>
@@ -14,56 +39,45 @@
     {{ partial "navbar.html" . }}
     {{ partial "header.html" . }}
 
-    <!-- Page Content -->
-    <div style="display:block; height:1000px;">
-      
-      <div class="container" style="overflow: auto;">
-        <div class="row">
-              <!-- PDF viewer-->
-          <div class="col-lg-6" style="display:block;">
-            
-            <!-- TODO: Direct this to project url.-->
-              {{ partial "badge" (dict "name" "template") }} 
-            <!-- TODO: Make template dynamic-->
-           
-            {{ partial "badge_custom" (dict "label" "GitHub" "message" "Project Repository" "link" "https://github.com/brainhack-proceedings/template" "target" "_blank" "logo" "github" "logoWidth" "14" "color" "green")}}
-            <div>
 
-            </div>
-            <iframe src="pdf/brainhack-template.pdf" width="589px" height="817vh" marginwidth="0" frameboreder="0" marginheight="0" style="border:none;margin-top:3px;">
-              This browser does not support PDFs. Please download the PDF to view it: 
-              <a href="brainhack-template.pdf">Download PDF</a></iframe>
-          </div>
-          <!-- Supplementary content-->
-          <div class="col-md-6" style="padding-left: 5rem! important; padding-top: 4rem! important;">
-            
-            {{ partial "share-buttons.html" . }}
-            
-            <h3 style="margin-top: 1em;">Abstract</h3>
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <h3 style="margin-bottom: 1em;">Tags</h3>
-            <ul class="tags">
-              <li><a href="#" class="tag">Neuroimaging</a></li>
-              <li><a href="#" class="tag">MRI</a></li>
-              <li><a href="#" class="tag">Workflows</a></li>
-            </ul>
-
-            <h3 style="margin-top: 1em;">Supplemental Materials</h3>
-            <p>  Such as data etc. </p>
-            
-            <h3 style="margin-top: 1em;">License</h3>
-            <p>  License description </p>
-
-          </div>
-
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Show the partial report.html (artifact from pandoc job) -->
+        <div class="col-xs-12 col-sm-7 col-pull-7" style="margin-left:1rem;">
+           {{ partial "report.html" . }}
         </div>
+        <div class="col-xs-12 col-sm-4 col-push-4">
+           {{ partial "share-buttons.html" . }}
+           <br>
+          <!-- TODO: Direct this to project url.-->
+          {{ partial "badge" (dict "name" "template") }} {{ partial "badge_custom" (dict "label" "GitHub" "message" "Project Repository" "link" "https://github.com/brainhack-proceedings/template" "target" "_blank" "logo" "github" "logoWidth" "14" "color" "green")}}      
+           <!-- TODO: Make template dynamic-->
+         
+            
+          <h3 style="margin-top: 1em;">Abstract</h3>
+          <p> {{.Site.Data.report.report.abstract}}</p>
+          <h3 style="margin-bottom: 1em;">Tags</h3>
+          <ul class="tags">
+            <li><a href="#" class="tag">Neuroimaging</a></li>
+            <li><a href="#" class="tag">MRI</a></li>
+            <li><a href="#" class="tag">Workflows</a></li>
+          </ul>
+
+          <h3 style="margin-top: 1em;">Supplemental Materials</h3>
+          <p>  Such as data etc. </p>
+          
+          <h3 style="margin-top: 1em;">License</h3>
+          <p>  License description </p>
+        </div>
+        
       </div>
 
     </div>
-     
+
+    {{ partial "footer.html" . }}
 
       </body>
-
-      {{ partial "footer.html" . }}
+      
+     
 
 </html>
