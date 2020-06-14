@@ -83,6 +83,8 @@ jobs:
          hugo-version: '0.71.1'
      - name: Build
        run: hugo --minify
+       env:
+          GITHUB_WORKSPACE: ${{github.workspace}}
      - name: Deploy
        uses: peaceiris/actions-gh-pages@v3
        with:
