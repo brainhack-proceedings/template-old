@@ -84,7 +84,7 @@ jobs:
      - name: Build
        run: hugo --minify
        env:
-          GITHUB_WORKSPACE: ${{github.workspace}}
+          HUGO_PARAMS_github: ${{github.workspace}}
      - name: Deploy
        uses: peaceiris/actions-gh-pages@v3
        with:
