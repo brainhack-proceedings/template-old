@@ -89,10 +89,11 @@
 
           <h3 style="margin-top: 1em;">License</h3>
           <p>  License description </p>
-        </div>
         
-        <h3> try </h3>
-        <p>{{ .Site.Params.github }}</p>
+          <h3> try </h3>
+          <p>{{ process.env.HUGO_PARAMS_github }}</p>
+
+        </div>
       </div>
 
     </div>
