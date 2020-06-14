@@ -18,7 +18,8 @@ jobs:
        uses: actions/checkout@v2
      - name: Compile PDF
        run: |
-        m2j report.md -o $GITHUB_WORKSPACE/data/report.json
+        touch $GITHUB_WORKSPACE/data/report.json
+        m2j report.md >> /data/report.json
         pandoc -s -N --template ./latex/brainhack-report-template.tex report.md -o ./latex/brainhack-${{env.PUB_NAME}}.tex
         pandoc -s -N --template ./latex/brainhack-html-template.tex report.md -o ./latex/brainhack-${{env.PUB_NAME}}-html.tex
         cd latex
