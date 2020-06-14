@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>brainhack-template-html</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="introduction">Introduction</h1>
+<p>The bibliography (<span style="background-color: light-gray"><code>report.bib</code></span>) must respect <a href="http://www.bibtex.org/Using/">BibTeX</a> format. You can cite entries in your bibliography using their tags:</p>
+<ul>
+<li><p>Cite an article: <span class="citation" data-cites="author:2010">(Doe and Doe 2010)</span></p></li>
+<li><p>Cite a GitHub repository: <span class="citation" data-cites="githubrepo:2020">(Cox 2020)</span></p></li>
+</ul>
+<p>You can use <span style="background-color: light-gray"><code>inline code highlight</code></span>. This paragraph shows how to add blank lines and how to start a paragraph without indentation.</p>
+<h1 id="section">Section</h1>
+<p>You can create additional sections as you prefer. Section title levels are determined by the number of hastags as in a traditional markdown file.</p>
+<h2 id="subsection">Subsection</h2>
+<p>Subsection content goes here. You can create numerated lists:</p>
+<ol>
+<li><p>The labels consists of sequential numbers.</p></li>
+<li><p>The numbers starts at 1 with every call to the enumerate environment.</p></li>
+</ol>
+<h3 id="subsubsection">SubSubsection</h3>
+<p>You can add mathematical formulas. Single dollars ($) are required for inline mathematics e.g. <span class="math inline"><em>f</em>(<em>x</em>) = <em>e</em><sup><em>π</em>/<em>x</em></sup></span>.</p>
+<p>You can also use plain LaTeXfor equations:</p>
+<p><br /><span class="math display"><em>f̂</em>(<em>ω</em>) = ∫<sub> − ∞</sub><sup>∞</sup><em>f</em>(<em>x</em>)<em>e</em><sup><em>i</em><em>ω</em><em>x</em></sup><em>d</em><em>x</em></span><br /> and refer to from text.</p>
+<h1 id="results">Results</h1>
+<p>Figure files must be placed at the <span style="background-color: light-gray"><code>figures</code></span> folder. You can include figures using the following block:</p>
+<figure>
+<img src="brainhack.png" id="fig1" alt="" /><figcaption><span id="fig1" label="fig1">[fig1]</span> Your caption goes here.</figcaption>
+</figure>
+<p>To refer a figure in the text, you need to use the respective label defined in its caption: Fig. <a href="#fig1" data-reference-type="ref" data-reference="fig1">1</a></p>
+<div id="refs" class="references hanging-indent" role="doc-bibliography">
+<div id="ref-githubrepo:2020">
+<p>Cox, R. W. 2020. “An example GitHub repo citation.” <em>GitHub</em>. <a href="https://github.com/owner/repo ">https://github.com/owner/repo</a>.</p>
+</div>
+<div id="ref-author:2010">
+<p>Doe, J., and J. Doe. 2010. “Lorem ipsum.” <em>Neuroimage</em> 50 (4): 1000–1001.</p>
+</div>
+</div>
+</body>
+</html>
