@@ -30,6 +30,19 @@
   #content-wrap {
     padding-bottom: 2.5rem;    /* Footer height */
   }
+  .btn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  /* Darker background on mouse-over */
+  .btn:hover {
+    background-color: RoyalBlue;
+  }
   </style>
 
   </head>
@@ -50,9 +63,12 @@
            {{ partial "share-buttons.html" . }}
            <br>
           <!-- TODO: Direct this to project url.-->
-          {{ partial "badge" (dict "name" "template") }} {{ partial "badge_custom" (dict "label" "GitHub" "message" "Project Repository" "link" "{{.Site.Data.report.report.url}}" "target" "_blank" "logo" "github" "logoWidth" "14" "color" "green")}}      
+          {{ $myUrl := .Site.Data.report.report.url}}
+          {{ partial "badge" (dict "name" "template") }} {{ partial "badge_custom" (dict "label" "GitHub" "message" "Project Repository" "link" $myUrl "target" "_blank" "logo" "github" "logoWidth" "14" "color" "green")}}      
            <!-- TODO: Make template dynamic-->
-         
+           <a href="https://github.com/brainhack-proceedings/template/blob/gh-pages/pdf/brainhack-template.pdf" download> 
+           <button class="btn" style="margin-top: 1em;"><i class="fa fa-download"></i> Download PDF</button>
+           </a>
             
           <h3 style="margin-top: 1em;">Abstract</h3>
           <p> {{.Site.Data.report.report.abstract}}</p>
