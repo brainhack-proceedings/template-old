@@ -2,7 +2,7 @@ name: Build proceeding PDF
 on:
   push:
     branches:
-      - master
+      - none
 
 env:
  PUB_NAME: ${{ github.event.repository.name }}
