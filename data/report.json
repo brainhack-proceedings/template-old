@@ -1,0 +1,57 @@
+{
+  "report": {
+    "event": "OHBM Brainhack 2020",
+    "title": "Title goes here",
+    "author": [
+      {
+        "initials": "JD",
+        "surname": "Doe",
+        "firstname": "Jane",
+        "email": "janedoe@gmail.com",
+        "affiliation": "aff1, aff2",
+        "corref": "aff1"
+      },
+      {
+        "initials": "JJD",
+        "surname": "Doe",
+        "firstname": "John J.",
+        "email": "johndoe@gmail.com",
+        "affiliation": "aff2",
+        "url": "https://jonhdoe.website.com"
+      }
+    ],
+    "affiliations": [
+      {
+        "id": "aff1",
+        "orgname": "Research Lab 1, Organization 1",
+        "street": "street_name_goes_here",
+        "postcode": "post_code_goes_here",
+        "city": "Montreal",
+        "state": "Quebec",
+        "country": "Canada"
+      },
+      {
+        "id": "aff2",
+        "orgname": "Research Lab 2, Organization 2",
+        "street": "street_name_goes_here",
+        "postcode": "post_code_goes_here",
+        "city": "Montreal",
+        "state": "Quebec",
+        "country": "Canada"
+      }
+    ],
+    "abstract": "Please write a brief summary of your project. This section will appear on the webpage.",
+    "url": "http://github.com/repo_owner/repo_name",
+    "coi": "Please add if there are competing interests. Otherwise, type None.",
+    "acknow": "The authors would like to thank the organizers and attendees of OHBM Brainhack 2020.",
+    "contrib": "JD and JJD wrote the software, JD performed tests, and JD and JJD wrote the report.",
+    "tags": [
+      "tag1",
+      "tag2",
+      "tag3"
+    ],
+    "bibliography": "report",
+    "preview": "# Introduction\nThe bibliography (\\code{report.bib}) must respect …",
+    "basename": "report"
+  }
+}
