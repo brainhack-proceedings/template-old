@@ -72,8 +72,6 @@ jobs:
         git config --local user.name "BHBOT"
         git add static/pdf/brainhack-${{env.PUB_NAME}}.pdf
         git commit -m "[ADD] 🤖 Compiled PDF" -a
-        git add data/report.json
-        git commit -m "[ADD] 🤖 JSON report" -a
         ls ./static/pdf
      - name: Push changes
        uses: ad-m/github-push-action@master
