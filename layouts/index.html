@@ -42,6 +42,7 @@
   /* Darker background on mouse-over */
   .btn:hover {
     background-color: RoyalBlue;
+    color: white;
   }
   </style>
 
@@ -66,7 +67,8 @@
           {{ $myUrl := .Site.Data.report.report.url}}
           {{ partial "badge" (dict "name" "template") }} {{ partial "badge_custom" (dict "label" "GitHub" "message" "Project Repository" "link" $myUrl "target" "_blank" "logo" "github" "logoWidth" "14" "color" "green")}}      
            <!-- TODO: Make template dynamic-->
-           <button class="btn" style="margin-top: 1em;"><i class="fa fa-download"></i>            <a href="https://github.com/brainhack-proceedings/template/raw/gh-pages/pdf/brainhack-template.pdf" download="brainhack-template.pdf"> Download PDF</a></button>
+           <a href="https://github.com/brainhack-proceedings/template/raw/gh-pages/pdf/brainhack-template.pdf" download="brainhack-template.pdf"></a>
+           <button class="btn" style="margin-top: 1em;"><i class="fa fa-download"></i>             Download PDF</button></a>
             
           <h3 style="margin-top: 1em;">Abstract</h3>
           <p> {{.Site.Data.report.report.abstract}}</p>
