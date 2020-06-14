@@ -50,6 +50,10 @@
       "tag2",
       "tag3"
     ],
+    "supplemental": [
+      "Material 1",
+      "Material 2"
+    ],
     "bibliography": "report",
     "preview": "# Introduction\nThe bibliography (\\code{report.bib}) must respect …",
     "basename": "report"
