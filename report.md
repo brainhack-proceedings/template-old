@@ -48,6 +48,10 @@ tags:
   - tag2
   - tag3
 
+supplemental:
+  - Material 1
+  - Material 2 
+
 bibliography: report
 ---
 
