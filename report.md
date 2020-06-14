@@ -43,6 +43,11 @@ acknow: The authors would like to thank the organizers and attendees of OHBM Bra
 
 contrib: JD and JJD wrote the software, JD performed tests, and JD and JJD wrote the report.
 
+tags:
+  - tag1
+  - tag2
+  - tag3
+
 bibliography: report
 ---
 

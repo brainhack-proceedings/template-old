@@ -50,7 +50,7 @@
            {{ partial "share-buttons.html" . }}
            <br>
           <!-- TODO: Direct this to project url.-->
-          {{ partial "badge" (dict "name" "template") }} {{ partial "badge_custom" (dict "label" "GitHub" "message" "Project Repository" "link" "https://github.com/brainhack-proceedings/template" "target" "_blank" "logo" "github" "logoWidth" "14" "color" "green")}}      
+          {{ partial "badge" (dict "name" "template") }} {{ partial "badge_custom" (dict "label" "GitHub" "message" "Project Repository" "link" "{{.Site.Data.report.report.url}}" "target" "_blank" "logo" "github" "logoWidth" "14" "color" "green")}}      
            <!-- TODO: Make template dynamic-->
          
             
@@ -58,9 +58,9 @@
           <p> {{.Site.Data.report.report.abstract}}</p>
           <h3 style="margin-bottom: 1em;">Tags</h3>
           <ul class="tags">
-            <li><a href="#" class="tag">Neuroimaging</a></li>
-            <li><a href="#" class="tag">MRI</a></li>
-            <li><a href="#" class="tag">Workflows</a></li>
+            {{ range $ky, $lbl := .Site.Data.report.report.tags}}
+            <li><a href="#" class="tag"> {{$lbl}} </a></li> 
+          {{end}}
           </ul>
 
           <h3 style="margin-top: 1em;">Supplemental Materials</h3>
