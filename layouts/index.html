@@ -31,28 +31,62 @@
     padding-bottom: 2.5rem;    /* Footer height */
   }
   .btn {
-    background-color: DodgerBlue;
+    background-color: rgb(59,81,94);
     border: none;
     color: white;
     padding: 12px 30px;
     cursor: pointer;
     font-size: 20px;
   }
-  
   /* Darker background on mouse-over */
   .btn:hover {
-    background-color: RoyalBlue;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.4) !important;
+    background-color: rgb(66,67,68);
     color: white;
   }
+  html, body {
+    margin:0;
+  }
+  .b {
+    fill: rgb(59,81,94);
+  }
+  .a {
+    fill: rgba(83,91,96,0.5);
+  }
+  [v-cloak] {display: none}
+
+    .my-logo-font {
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    .my-font {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .box-shadow:hover {
+      box-shadow: 3px 3px 3px rgba(0,0,0,0.2) !important;
+    }
+
+    .intro {
+      background: url(/img/pattern1.png);
+      background-size: cover;
+      background-position: 50%;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
+    .custom_tab {
+      width: 80px;
+      min-height:50px !important;
+      color: white
+    }
   </style>
 
   </head>
 
+  {{ partial "navbar.html" . }}
+  {{ partial "header.html" . }}
+
   <body>
-
-    {{ partial "navbar.html" . }}
-    {{ partial "header.html" . }}
-
 
     <div class="container-fluid">
       <div class="row">

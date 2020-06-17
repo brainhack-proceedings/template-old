@@ -9,8 +9,14 @@ theme = "business-frontpage"
     description = "Proceeding page."
 
     [params.navbar]
-    name = "Proceedings gallery"
-    url = "#"
+    about = "About"
+    about_url = "#"
+    papers = "Papers"
+    papers_url = "https://brainhack-proceedings.github.io/papers"
+    blog = "Blog"
+    blog_url = "https://brainhack-proceedings.github.io/blog"
+    submit = "Submit"
+    submit_url = "https://github.com/brainhack-proceedings/submit"
 
     [[params.navbar.nav]]
     current = true
