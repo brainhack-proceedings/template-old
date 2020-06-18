@@ -10,6 +10,8 @@ author:
   email: janedoe@gmail.com
   affiliation: aff1, aff2
   corref: aff1
+  # Please make sure that you set corref (corresponding aff) if you have
+  # multiple afiliations
 - initials: JJD
   surname: Doe
   firstname: John J.

@@ -16,7 +16,7 @@
         overflow-y: scroll;
       }
   img {
-        max-width: 80%;
+        max-width: 70%;
         height: auto;
     }
     ::-webkit-scrollbar {
@@ -109,7 +109,7 @@
           <h3 style="margin-bottom: 1em;">Tags</h3>
           <ul class="tags">
             {{ range $ky, $lbl := .Site.Data.report.report.tags}}
-            <li><a href="#" class="tag"> {{$lbl}} </a></li> 
+            <li class="tag">{{$lbl}}</li> 
           {{end}}
           </ul>
 

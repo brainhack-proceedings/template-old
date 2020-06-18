@@ -19,31 +19,52 @@
 }
 </style>
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    Tipped.create('.simple-tooltip');
+  });
+</script>
+
     <!-- Header -->
     <!-- <header class="bg-primary py-2 mb-5" style="background-image: url('https://braintumorcenter.ucsf.edu/sites/default/files/styles/page_header_lg/public/2019-01/human-stem-cell-derived-neuron_header.jpg?itok=H8VzBAUF')! important;background-size: cover;"> -->
      <header class="mb-2 mt-2" style="background-image: url(img/pattern1.svg);background-size: inherit;background-color:#424344;background-repeat: no-repeat;background-position: 50%;background-size:100% 100%;" >
       <div class="container-fluid">
         <div class="row align-items-left" style="margin-left:1rem;">
           <div class="col-xs-12">
+            <h1 class="mt-5 mb-1" style="color:aliceblue;">{{.Site.Data.report.report.title}}</h1>
 
-            <h2 class="mt-5 mb-1" style="color:aliceblue;">{{.Site.Data.report.report.title}}</h1>
-
-              <ul class="comma-list" style="color: aliceblue;">
+              <ul class="comma-list" style="color: aliceblue;padding:2px;">
               <p class="lead mb-5 text-white" style="margin-bottom: 0em! important;font-weight:bold! important;">Authors</p>
-                {{ range $ky, $lbl := .Site.Data.report.report.author}}
+                {{ range $ky, $lbl := $.Site.Data.report.report.author}}
+                
+                {{ if $lbl.corref }}
+                  {{ $.Scratch.Set "affil" $lbl.corref}}
+                {{else}}
+                {{ $.Scratch.Set "affil" $lbl.affiliation}}
+                {{end}}
+
+                {{ range $ky2, $lbl2 := $.Site.Data.report.report.affiliations}}
+                {{if eq ($.Scratch.Get "affil") $lbl2.id}}
+                  {{ $.Scratch.Set "inst" $lbl2.orgname}}
+                  {{end}}
+                {{end}}
+  
                 {{if $lbl.url}}
-                <li style="color: aliceblue;list-style: none;">
-                  <a href="{{$lbl.website}}" data-toggle="tooltip" title={{$lbl.affiliation}} style="color:aliceblue"><u>{{ $lbl.firstname }} {{$lbl.surname}}</u></a> 
+
+                <li style="color: aliceblue;list-style: none;" data-toggle="tooltip" title={{ $.Scratch.Get "inst" }} data-content="Some content">
+
+                  <a href='{{ $lbl.url }}' style="color:aliceblue"><u>{{ $lbl.firstname }} {{$lbl.surname}}</u></a> 
               </li>
+
               {{end}}
               {{if not $lbl.url}}
-              <li style="color: aliceblue;list-style: none;" data-toggle="tooltip"  title={{$lbl.affiliation}}>
+              <li style="color: aliceblue;list-style: none;" data-toggle="tooltip"  title={{ $.Scratch.Get "inst" }}>
               {{ $lbl.firstname }} {{$lbl.surname}}
              </li>
               {{end}}
               {{ end }}
             </ul>
-
+            <br>
           </div>
         </div>
       </div>
