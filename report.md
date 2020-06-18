@@ -35,7 +35,7 @@ affiliations:
   state: Quebec
   country: Canada
 
-abstract: Please write a brief summary of your project. This section will appear on the webpage. 
+summary: Please write a brief summary of your project. This section will appear on the webpage. 
 
 url: http://github.com/repo_owner/repo_name
 

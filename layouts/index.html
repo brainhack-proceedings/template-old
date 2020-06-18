@@ -101,11 +101,11 @@
           {{ $myUrl := .Site.Data.report.report.url}}
           {{ partial "badge" (dict "name" "template") }} {{ partial "badge_custom" (dict "label" "GitHub" "message" "Project Repository" "link" $myUrl "target" "_blank" "logo" "github" "logoWidth" "14" "color" "green")}}      
            <!-- TODO: Make template dynamic-->
-           <a href="https://github.com/brainhack-proceedings/template/raw/gh-pages/pdf/brainhack-template.pdf" download="brainhack-template.pdf"></a>
+           <a href="https://github.com/brainhack-proceedings/template/raw/gh-pages/pdf/brainhack-template.pdf" download="brainhack-template.pdf">
            <button class="btn" style="margin-top: 1em;"><i class="fa fa-download"></i>             Download PDF</button></a>
             
           <h3 style="margin-top: 1em;">Abstract</h3>
-          <p> {{.Site.Data.report.report.abstract}}</p>
+          <p> {{.Site.Data.report.report.summary}}</p>
           <h3 style="margin-bottom: 1em;">Tags</h3>
           <ul class="tags">
             {{ range $ky, $lbl := .Site.Data.report.report.tags}}
@@ -124,7 +124,7 @@
           <p> {{.Site.Data.report.report.contrib}}</p>
 
           <h3 style="margin-top: 1em;">License</h3>
-          <p>  License description </p>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Cc.logo.circle.svg/1280px-Cc.logo.circle.svg.png" width="30px"> <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> Creative Commons Attribution license (CC BY 4.0)</a>
         
 
         </div>
