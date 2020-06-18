@@ -4,7 +4,7 @@
     {{ $dir := "figures" }}
     {{ $images := readDir $dir | shuffle}}
     {{ $first := index $images 0 }}
-    {{ $featured := (print "https://brainhack-proceedings.github.io/" $.Site.Data.ghdetails.repo "/blob/gh-pages/" $first.Name "?raw=true") }}
+    {{ $featured := (print "https://github.com/" $.Site.Data.ghdetails.repo "/blob/gh-pages/" $first.Name "?raw=true") }}
 
     <meta name="twitter:card" content= "summary"/>
     <meta name="twitter:site" content="@brainhack" />
