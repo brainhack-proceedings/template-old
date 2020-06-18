@@ -9,23 +9,32 @@ theme = "business-frontpage"
     description = "Proceeding page."
 
     [params.navbar]
-    about = "About"
-    about_url = "#"
-    papers = "Papers"
-    papers_url = "https://brainhack-proceedings.github.io/papers"
-    blog = "Blog"
-    blog_url = "https://brainhack-proceedings.github.io/blog"
-    submit = "Submit"
-    submit_url = "https://github.com/brainhack-proceedings/submit"
+    name = "Lelele"
+    url = "https://ohbm.github.io/hackathon2020/"
+
+   [[params.navbar.nav]]
+    current = true
+    name = "About"
+    url = "https://ohbm.github.io/hackathon2020/"
+
+   [[params.navbar.nav]]
+    current = true
+    name = "Papers"
+    url = "https://brainhack-proceedings.github.io/papers"
+
+   [[params.navbar.nav]]
+    current = true
+    name = "Blog"
+    url = "https://brainhack-proceedings.github.io/blog"
 
     [[params.navbar.nav]]
     current = true
-    name = "OHBM Hackathon 2020"
-    url = "https://ohbm.github.io/hackathon2020/"
+    name = "Submit"
+    url = "https://github.com/brainhack-proceedings/submit"
 
     [params.header]
-    name = "Business Name or Tagline"
-    tagline = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non possimus ab labore provident mollitia. Id assumenda voluptate earum corporis facere quibusdam quisquam iste ipsa cumque unde nisi, totam quas ipsam."
+    name = "Brainhack proceedings"
+    tagline = "Brainhack proceedings"
 
     [params.footer]
         copyright = "BrainHack"

@@ -1,6 +1,17 @@
 
     <title>{{ .Site.Title }}</title>
 
+    {{ $dir := "figures" }}
+    {{ $images := readDir $dir | shuffle}}
+    {{ $first := index $images 0 }}
+    {{ $featured := (print "https://brainhack-proceedings.github.io/" $.Site.Data.ghdetails.repo "/blob/gh-pages/" $first.Name "?raw=true") }}
+
+    <meta name="twitter:card" content= />
+    <meta name="twitter:site" content="@brainhack" />
+    <meta name="twitter:title" content={{.Site.Data.report.report.title}} />
+    <meta name="twitter:description" content={{.Site.Data.report.report.summary}} />
+    <meta name="twitter:image" content={{ $featured }} />
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="{{ .Site.Params.description }}">
