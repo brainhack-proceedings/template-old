@@ -17,55 +17,92 @@
   .comma-list li:last-child::after {
     content: "";
 }
+.header{
+  width:105%;
+  height:40%;
+  left:-3%;
+  position:absolute;
+  background-image: linear-gradient(#8459f9, #4c3196);
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  
+  border-bottom-right-radius: 50% 20%;
+}
+
+</style>
+<style>
+  .b {
+    fill: rgb(59,81,94);
+  }
+  .a {
+    fill: rgba(83,91,96,0.5);
+  }
 </style>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    Tipped.create('.simple-tooltip');
-  });
-</script>
 
-    <!-- Header -->
-    <!-- <header class="bg-primary py-2 mb-5" style="background-image: url('https://braintumorcenter.ucsf.edu/sites/default/files/styles/page_header_lg/public/2019-01/human-stem-cell-derived-neuron_header.jpg?itok=H8VzBAUF')! important;background-size: cover;"> -->
-     <header class="mb-2 mt-2" style="background-image: url(img/pattern1.svg);background-size: inherit;background-color:#424344;background-repeat: no-repeat;background-position: 50%;background-size:100% 100%;" >
-      <div class="container-fluid">
-        <div class="row align-items-left" style="margin-left:1rem;">
-          <div class="col-xs-12">
-            <h1 class="mt-5 mb-1" style="color:aliceblue;">{{.Site.Data.report.report.title}}</h1>
+<!-- Header -->
+<header class="bg-primary" style="background-color:#424344! important;background-repeat:no-repeat! important;background-position: 50%! important;border-bottom-right-radius: 40% 30%!important;">
+  <svg style="width:100%;height:200px"></svg>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12" style="margin-left:1rem;">
+        {{ with .Site.Params.header }}
+        <h1 style="color: aliceblue;font-weight:200! important;margin-bottom:.5em!important;line-height:1em;margin-right:1rem! important;">{{$.Site.Data.report.report.title}}</h1>
+        {{ end }}
+        <ul class="comma-list" style="color: aliceblue;font-size:1.5rem! important;margin-bottom:5px! important;">
+          <p class="lead mb-1 text-white" style="margin-bottom: 0em! important;font-weight:bold! important;">Authors</p>
+            {{ range $ky, $lbl := $.Site.Data.report.report.author}}
+            
+            {{ if $lbl.corref }}
+              {{ $.Scratch.Set "affil" $lbl.corref}}
+            {{else}}
+            {{ $.Scratch.Set "affil" $lbl.affiliation}}
+            {{end}}
 
-              <ul class="comma-list" style="color: aliceblue;padding:2px;">
-              <p class="lead mb-5 text-white" style="margin-bottom: 0em! important;font-weight:bold! important;">Authors</p>
-                {{ range $ky, $lbl := $.Site.Data.report.report.author}}
-                
-                {{ if $lbl.corref }}
-                  {{ $.Scratch.Set "affil" $lbl.corref}}
-                {{else}}
-                {{ $.Scratch.Set "affil" $lbl.affiliation}}
-                {{end}}
-
-                {{ range $ky2, $lbl2 := $.Site.Data.report.report.affiliations}}
-                {{if eq ($.Scratch.Get "affil") $lbl2.id}}
-                  {{ $.Scratch.Set "inst" $lbl2.orgname}}
-                  {{end}}
-                {{end}}
-  
-                {{if $lbl.url}}
-
-                <li style="color: aliceblue;list-style: none;" data-toggle="tooltip" title={{ $.Scratch.Get "inst" }} data-content="Some content">
-
-                  <a href='{{ $lbl.url }}' style="color:aliceblue"><u>{{ $lbl.firstname }} {{$lbl.surname}}</u></a> 
-              </li>
-
+            {{ range $ky2, $lbl2 := $.Site.Data.report.report.affiliations}}
+            {{if eq ($.Scratch.Get "affil") $lbl2.id}}
+              {{ $.Scratch.Set "inst" $lbl2.orgname}}
               {{end}}
-              {{if not $lbl.url}}
-              <li style="color: aliceblue;list-style: none;" data-toggle="tooltip"  title={{ $.Scratch.Get "inst" }}>
-              {{ $lbl.firstname }} {{$lbl.surname}}
-             </li>
-              {{end}}
-              {{ end }}
-            </ul>
-            <br>
-          </div>
-        </div>
+            {{end}}
+
+            {{if $lbl.url}}
+
+            <li style="color: aliceblue;list-style: none;" data-toggle="tooltip" title={{ $.Scratch.Get "inst" }} data-content="Some content">
+
+              <a href='{{ $lbl.url }}' style="color:aliceblue"><u>{{ $lbl.firstname }} {{$lbl.surname}}</u></a> 
+          </li>
+
+          {{end}}
+          {{if not $lbl.url}}
+          <li style="color: aliceblue;list-style: none;" data-toggle="tooltip"  title={{ $.Scratch.Get "inst" }}>
+          {{ $lbl.firstname }} {{$lbl.surname}}
+         </li>
+          {{end}}
+          {{ end }}
+        </ul>
+
       </div>
-    </header>
+    </div>
+  </div>
+</header>
+
+<script>
+  const svg = document.querySelector("svg");
+  const ncols = 33, nrows = 1, o = 50;
+  const minr = 10;
+  const d = (window.outerWidth - 2*o)/(ncols-1);
+  const height = 1.5*o + (nrows-1)*d;
+  const r = d/140;
+  svg.innerHTML = `<rect x="0" y="0" width="${2*o+(ncols-1)*d}" height="${height}" fill="rgb(66,67,68)"/>`
+  svg.style.height = height;
+  for(let j=0;j<nrows;j++) {
+    for(let i=0;i<ncols;i++) {
+      const x = o + i*d;
+      const y = o + j*d;
+      const r1 = (i+minr)*r;
+      const r2 = ((ncols-1-i)+minr)*r;
+      svg.innerHTML += `<circle class="b" cx="${x}" cy="${y}" r="${r2}" /> `;
+      svg.innerHTML += `<circle class="a" cx="${x-9}" cy="${y}" r="${r1}" /> `;
+    }
+  }
+</script>

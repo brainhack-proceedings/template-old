@@ -101,7 +101,7 @@
           {{ $myUrl := .Site.Data.report.report.url}}
           {{ partial "badge" (dict "name" "template") }} {{ partial "badge_custom" (dict "label" "GitHub" "message" "Project Repository" "link" $myUrl "target" "_blank" "logo" "github" "logoWidth" "14" "color" "green")}}      
            <!-- TODO: Make template dynamic-->
-           <a href="https://github.com/brainhack-proceedings/template/raw/gh-pages/pdf/brainhack-template.pdf" download="brainhack-template.pdf">
+           <a href="https://github.com/{{$.Site.Data.ghdetails.repo}}/raw/gh-pages/pdf/brainhack-template.pdf" download="brainhack-{{$.Site.Data.ghdetails.pub_name}}.pdf">
            <button class="btn" style="margin-top: 1em;"><i class="fa fa-download"></i>             Download PDF</button></a>
             
           <h3 style="margin-top: 1em;">Abstract</h3>
@@ -141,7 +141,16 @@
     {{ partial "footer.html" . }}
 
       </body>
-      
-     
+
+{{ $dir := "figures" }}
+{{ $images := readDir $dir | shuffle}}
+{{ $first := index $images 0 }}
+{{ $featured := (print "https://brainhack-proceedings.github.io/" $.Site.Data.ghdetails.repo "/blob/gh-pages/" $first.Name "?raw=true") }}
+
+<meta name="twitter:card" content= />
+<meta name="twitter:site" content="@brainhack" />
+<meta name="twitter:title" content={{.Site.Data.report.report.title}} />
+<meta name="twitter:description" content={{.Site.Data.report.report.summary}} />
+<meta name="twitter:image" content={{ $featured }} />
 
 </html>

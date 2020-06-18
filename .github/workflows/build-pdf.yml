@@ -73,6 +73,10 @@ jobs:
        with:
          name: JSON Report ${{env.PUB_NAME}}
          path: data
+     - uses: actions/download-artifact@master
+       with:
+         name: JSON GitHub ${{env.PUB_NAME}}
+         path: data
      - name: Commit files
        run: |
         rsync -r figures/ static
