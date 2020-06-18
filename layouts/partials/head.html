@@ -6,7 +6,7 @@
     {{ $first := index $images 0 }}
     {{ $featured := (print "https://brainhack-proceedings.github.io/" $.Site.Data.ghdetails.repo "/blob/gh-pages/" $first.Name "?raw=true") }}
 
-    <meta name="twitter:card" content= />
+    <meta name="twitter:card" content= "summary"/>
     <meta name="twitter:site" content="@brainhack" />
     <meta name="twitter:title" content={{.Site.Data.report.report.title}} />
     <meta name="twitter:description" content={{.Site.Data.report.report.summary}} />
