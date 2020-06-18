@@ -20,7 +20,11 @@ jobs:
        run: |
         mkdir -p data
         [ -e data/report.json ] && rm data/report.json
+        [ -e data/ghdetails.json ] && rm data/ghdetails.json
         m2j report.md >> data/report.json
+        cat <<EOF > data/ghdetails.json
+        {"pub_name" : "${{env.PUB_NAME}}","repo":"$GITHUB_REPOSITORY"}
+        EOF
         pandoc -s -N --template ./latex/brainhack-report-template.tex report.md -o ./latex/brainhack-${{env.PUB_NAME}}.tex
         pandoc -s -N --template ./latex/brainhack-html-template.tex report.md -o ./latex/brainhack-${{env.PUB_NAME}}-html.tex
         cd latex
@@ -44,6 +48,10 @@ jobs:
        with:
          name: JSON Report ${{env.PUB_NAME}}
          path: data/report.json
+     - uses: actions/upload-artifact@v2
+       with:
+         name: JSON GitHub ${{env.PUB_NAME}}
+         path: data/ghdetails.json
   buildHugo:
    runs-on: ubuntu-latest
    needs: buildPDF
