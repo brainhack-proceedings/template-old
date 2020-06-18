@@ -12,8 +12,10 @@
     <meta name="twitter:description" content={{.Site.Data.report.report.summary}} />
     <meta name="twitter:image" content={{ $featured }} />
 
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
     <meta name="description" content="{{ .Site.Params.description }}">
     <meta name="author" content="{{ .Site.Params.author }}">
 
@@ -110,6 +112,12 @@
       .tag:hover::after {
          border-left-color: rgb(66,67,68); 
       }
+      html, body {
+        overflow-x: hidden;
+    }
+    body{
+      width: 100%;
+    }
     </style>
 
     <script src="{{ .Site.BaseURL }}assets/vendor/jquery/jquery.min.js"></script>

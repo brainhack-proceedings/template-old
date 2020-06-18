@@ -1,3 +1,10 @@
+<script>
+  $(function() {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
+</script>
+
 <style>
   .comma-list {
     display: inline;
@@ -17,18 +24,12 @@
   .comma-list li:last-child::after {
     content: "";
 }
-.header{
-  width:105%;
-  height:40%;
-  left:-3%;
-  position:absolute;
-  background-image: linear-gradient(#8459f9, #4c3196);
-  border-top-left-radius:10px;
-  border-top-right-radius:10px;
-  
-  border-bottom-right-radius: 50% 20%;
-}
 
+.tooltip .arrow:before {
+  border-bottom-color:aliceblue !important;
+  border-top-color:aliceblue!important;
+  }
+.tooltip-inner {background-color:rgb(59,81,94)}
 </style>
 <style>
   .b {
@@ -42,7 +43,7 @@
 
 <!-- Header -->
 
-<header class="bg-primary" style="background-color:#424344! important;background-repeat:no-repeat! important;background-position: 50%! important;border-bottom-right-radius: 90% 10%!important;">
+<header class="bg-primary" style="background-color:#424344! important;background-repeat:no-repeat! important;background-position: 50%! important;border-bottom-right-radius: 20% 10%!important;">
   <svg style="width:100%;height:200px"></svg>
   <div class="container-fluid">
     <div class="row">
@@ -50,7 +51,7 @@
         {{ with .Site.Params.header }}
         <h1 style="color: aliceblue;font-weight:200! important;margin-bottom:.5em!important;line-height:1em;margin-right:1rem! important;">{{$.Site.Data.report.report.title}}</h1>
         {{ end }}
-        <ul class="comma-list" style="color: aliceblue;font-size:1.5rem! important;margin-bottom:5px! important;">
+        <ul class="comma-list" style="color: aliceblue;font-size:1.2rem! important;margin-bottom:5px! important;">
           <p class="lead mb-1 text-white" style="margin-bottom: 0em! important;font-weight:bold! important;">Authors</p>
             {{ range $ky, $lbl := $.Site.Data.report.report.author}}
             
@@ -62,13 +63,14 @@
 
             {{ range $ky2, $lbl2 := $.Site.Data.report.report.affiliations}}
             {{if eq ($.Scratch.Get "affil") $lbl2.id}}
-              {{ $.Scratch.Set "inst" $lbl2.orgname}}
+            {{ $tmp := (print $lbl2.orgname ", " $lbl2.city ", " $lbl2.country) }}
+              {{ $.Scratch.Set "inst" $tmp}}
               {{end}}
             {{end}}
 
             {{if $lbl.url}}
 
-            <li style="color: aliceblue;list-style: none;" data-toggle="tooltip" title={{ $.Scratch.Get "inst" }} data-content="Some content">
+            <li style="color: aliceblue;list-style: none;" data-toggle="tooltip" title={{ $.Scratch.Get "inst" }} class="red-tooltip">
 
               <a href='{{ $lbl.url }}' style="color:aliceblue"><u>{{ $lbl.firstname }} {{$lbl.surname}}</u></a> 
           </li>
@@ -81,7 +83,16 @@
           {{end}}
           {{ end }}
         </ul>
+        <br>
 
+        <ul class="comma-list" style="color: aliceblue;font-size:.7rem! important;margin-bottom:5px! important;">
+        {{ range $ky, $lbl := $.Site.Data.report.report.affiliations}}
+          <li style="color: aliceblue;list-style: none;">
+            {{ $lbl.orgname }}
+           </li>
+           {{end}}
+        </ul>
+        
       </div>
     </div>
   </div>
