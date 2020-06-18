@@ -40,7 +40,7 @@
         "country": "Canada"
       }
     ],
-    "abstract": "Please write a brief summary of your project. This section will appear on the webpage.",
+    "summary": "Please write a brief summary of your project. This section will appear on the webpage.",
     "url": "http://github.com/repo_owner/repo_name",
     "coi": "Please add if there are competing interests. Otherwise, type None.",
     "acknow": "The authors would like to thank the organizers and attendees of OHBM Brainhack 2020.",
