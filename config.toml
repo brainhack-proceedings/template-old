@@ -9,26 +9,22 @@ theme = "business-frontpage"
     description = "Proceeding page."
 
     [params.navbar]
-    name = "Lelele"
+    name = "Ignored"
     url = "https://ohbm.github.io/hackathon2020/"
 
    [[params.navbar.nav]]
-    current = true
     name = "About"
     url = "https://ohbm.github.io/hackathon2020/"
 
    [[params.navbar.nav]]
-    current = true
     name = "Papers"
     url = "https://brainhack-proceedings.github.io/papers"
 
    [[params.navbar.nav]]
-    current = true
     name = "Blog"
     url = "https://brainhack-proceedings.github.io/blog"
 
     [[params.navbar.nav]]
-    current = true
     name = "Submit"
     url = "https://github.com/brainhack-proceedings/submit"
 
