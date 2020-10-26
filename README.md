@@ -20,6 +20,10 @@ Simply follow [these steps](https://docs.github.com/en/free-pro-team@latest/acti
 
 The name of the secret must be `PAT_BOT` and the value must be the key you obtained from the previous step.
 
+*** 
+
+You need to follow the steps up to this point only once. You can repeat the remaining steps until you finish your report. 
+
 ### 5. Create your report
 
 * Place your figures in the [`figures`](figures) folder. 
@@ -34,4 +38,4 @@ The name of the secret must be `PAT_BOT` and the value must be the key you obtai
 
 ### 6. Push your changes 
 
-Whenever you push your changes to the `main` branch, GitHub actions will create a nice web page (your_github_handle.github.io/template unless you don't change the name of the repo) where people can download its PDF. 
+Whenever you push your changes to the `master` branch, GitHub actions will create a nice web page (your_github_handle.github.io/template unless you don't change the name of the repo) where people can download its PDF. 
