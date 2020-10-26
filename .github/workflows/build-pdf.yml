@@ -9,7 +9,7 @@ env:
 jobs:
   buildPDF:
     runs-on: ubuntu-latest
-    
+    if: "!contains(github.event.head_commit.message, 'Initial commit')"
     container:
       image: agahkarakuzu/bhproceedings@sha256:bfc1b7f3b714b12e04a6a6ef1f440e9f19997ac1bfecc2187f2476cf47c22ab3
 
@@ -54,6 +54,7 @@ jobs:
          path: data/ghdetails.json
   buildHugo:
    runs-on: ubuntu-latest
+   if: "!contains(github.event.head_commit.message, 'Initial commit')"
    needs: buildPDF
    steps:  
      - name: Checkout repository
