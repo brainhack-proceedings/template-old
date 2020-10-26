@@ -1,15 +1,9 @@
 <h2 align="center"> STEP 1 - Get the machinery running ⚙️ </h2>
 
-<h3 align="center"> Fork this repository </h3>
+<h3 align="center"> Use this template </h3>
+<h3 align="center"> 🍪✂️ </h3>
 
-<p align="center"><img src="https://github.com/channelCS/github-buttons/blob/master/2x/github_fork.png"></p>
-
-
-<h3 align="center"> Enable actions </h3>
-<h3 align="center"> ✅</h3>
-
-<p align="center">Go to the <code>Actions</code> tab in your forked repo, and click the green button that says "I understand my actions, go ahead and enable them".</p>
-
+<p align="center">Click the green <code>Use this template</code> button and create a repository in your own user account. <br><br> Please follow <b>YYYY_MM_first-auth-surname_freeform-keywords</b> convention to name your repository. <br><br> For example: <code>2020_10_karakuzu_qmri-pulse-sequence</code></p>
 
 <h3 align="center">  Create a GitHub access token </h3>
 <h3 align="center"> 🔑 </h3>
