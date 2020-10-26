@@ -42,7 +42,7 @@
 <p align="center">Unless you change the name of the repo you forked from <code>template</code> to something else, your page will be published at <i>your_GitHub_handle.github.io/template</i>.</p> 
 
 
-<h2 align="center"> STEP 2 - Edit your report ✍️ </h2.
+## STEP 2 - Edit your report ✍️
   
 
 * Place your figures in the [`figures`](figures) folder. 
