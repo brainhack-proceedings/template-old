@@ -29,7 +29,7 @@
 <h3 align="center"> Push a dummy change to the <code>master</code> </h3>
 <h3 align="center"> 📤 </h3>
 
-<p align="center"> It can be anything, such as simply editing this <code>README.md</code> file you are reading at the moment. </p>
+<p align="center"> It can be anything, such as simply editing this <code>README.md</code> file you are reading at the moment. @sofievdbos: Done! </p>
 
 
 <h3 align="center"> What now ?  </h3>
