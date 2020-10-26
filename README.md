@@ -43,6 +43,7 @@
 
 
 <h2 align="center"> STEP 2 - Edit your report ✍️ </h2.
+  
 
 * Place your figures in the [`figures`](figures) folder. 
 
