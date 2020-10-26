@@ -14,11 +14,7 @@
 <h3 align="center">  Create a GitHub access token </h3>
 <h3 align="center"> 🔑 </h3>
 
-<p align="center">Read the warning below and follow <a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token#creating-a-token">these steps</a>.</p> 
-
-| ⚠️ Warning|
-| --- |
-|Make sure that you check the **repo**, **admin:repo_hook** and **workflow** boxes while creating your access token.|
+<p align="center">Follow <a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token#creating-a-token">these steps</a> and make sure that you check the <b>repo</b>, <b>admin:repo_hook</b> and <b>workflow</b> boxes while creating your access token.</p> 
 
 
 <h3 align="center"> Create an encrypted secret for your repo </h3>
@@ -43,10 +39,10 @@
 
 <p align="center">Soon after a successful action run, your web page will be deployed. You should see <b>Environments</b> section appeared in your repository (on the right column). In the <b>Environments</b> page, click the <code>View Deployment</code> button to visit your report page! At this stage, it should be identical to the <a href="http://brainhack-proceedings.github.io/template">BrainHack proceedings template webpage</a>.</p>
 
-<p align="center">Unless you change the name of the repo you forked from `template` to something else, your page will be published at <i>your_GitHub_handle.github.io/template</i>.</p> 
+<p align="center">Unless you change the name of the repo you forked from <code>template</code> to something else, your page will be published at <i>your_GitHub_handle.github.io/template</i>.</p> 
 
 
-## STEP 2 - Edit your report ✍️
+<h2 align="center"> STEP 2 - Edit your report ✍️ </h2.
 
 * Place your figures in the [`figures`](figures) folder. 
 
