@@ -97,8 +97,8 @@
         <div class="col-xs-12 col-sm-4 col-push-4">
            {{ partial "share-buttons.html" . }}
            <br>
-          <!-- TODO: Direct this to project url.-->
-          {{ $myUrl := .Site.Data.report.report.url}}
+
+          {{ $myUrl := print "https://github.com/" $.Site.Data.ghdetails.repo}}
           {{ partial "badge" (dict "name" "template") }} {{ partial "badge_custom" (dict "label" "GitHub" "message" "Project Repository" "link" $myUrl "target" "_blank" "logo" "github" "logoWidth" "14" "color" "green")}}     
           <br> 
            <!-- TODO: Make template dynamic-->
